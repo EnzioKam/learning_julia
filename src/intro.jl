@@ -2,6 +2,9 @@ println("Hello, World!")
 
 # This is a comment
 
+#= This is a multi-line comment
+The second line of the comment =#
+
 # println ("this is not allowed")
 println("This is allowed.")
 println("This is also allowed.");

@@ -48,3 +48,14 @@ println(isa(1, Int))
 println(isa(1, Float64))
 println(isa(1, Char))
 println(isa(1, Matrix))
+
+println("Some extra stuff")
+println(1_000_000) # An integer
+println((1, 000, 000)) # Tuple of integers
+println(Inf, "\n", -Inf)
+println(Inf + -Inf)
+println(Inf * -Inf)
+println(Inf + Inf)
+println(pi)
+println(round(1234, sigdigits=2))
+println(round(123.456, digits=2))
