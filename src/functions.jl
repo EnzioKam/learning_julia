@@ -51,7 +51,6 @@ println("d, e, f: $d, $e, $f")
 println(printlines())
 
 # Example of a docstring
-
 """
 polyline(t, n, len, angle)
 
@@ -60,3 +59,19 @@ angle (in degrees) between them.  t is a turtle.
 """
 function polyline(t, n, len, angle)
 end
+
+# Example of including errors
+function fact(n)
+    if !(n isa Int64)
+        error("Factorial is only defined for integers.")
+    elseif n < 0
+        error("Factorial is not defined for negative integers.")
+    elseif n == 0
+        return 1
+    else
+        return n * fact(n-1)
+    end
+end
+
+# println(fact(1.5))
+# println(fact(-1))
