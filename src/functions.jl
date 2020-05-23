@@ -49,3 +49,14 @@ println("d, e, f: $d, $e, $f")
 
 # Example of void function that returns nothing:
 println(printlines())
+
+# Example of a docstring
+
+"""
+polyline(t, n, len, angle)
+
+Draws n line segments with the given length and
+angle (in degrees) between them.  t is a turtle.
+"""
+function polyline(t, n, len, angle)
+end

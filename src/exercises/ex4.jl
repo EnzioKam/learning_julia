@@ -33,11 +33,9 @@ end
 
 # Exercise 4-4
 function square(t, len)
-    @svg begin
-        for i in 1:4
-            forward(turtle, len)
-            turn(turtle, -90)
-        end
+    for i in 1:4
+        forward(turtle, len)
+        turn(turtle, -90)
     end
 end
 
@@ -47,12 +45,11 @@ turtle = Turtle()
 end
 
 # Exercise 4-5
-function polygon(t, len, n)
-    @svg begin
-        for i in 1:n
-            forward(turtle, len)
-            turn(turtle, -360/n)
-        end
+function polygon(t, n, len)
+    angle = 360 / n
+    for i in 1:n
+        forward(t, len)
+        turn(t, -angle)
     end
 end
 
@@ -73,7 +70,7 @@ end
 
 # Exercise 4-7
 function arc(t, r, angle)
-    circ = 2*pi*r
+    circ = 2 * pi * r
     frac = angle / 360
     arclength = circ * frac
     n = 30
