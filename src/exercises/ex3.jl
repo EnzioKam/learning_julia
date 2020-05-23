@@ -1,5 +1,4 @@
 # Exercise 3-1
-
 # repeatlyrics()
 
 function repeatlyrics()
