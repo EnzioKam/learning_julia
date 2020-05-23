@@ -95,7 +95,7 @@ function draw(t, length, n)
     forward(t, -length*n)
 end
 
-t = turtle()
+t = Turtle()
 @svg begin
     draw(t, 10, 5)
 end
