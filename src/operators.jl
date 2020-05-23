@@ -13,6 +13,7 @@ println("Other operators")
 @printf("div(11, 4) = %d\n", div(11, 4))
 @printf("rem(11, 4) = %d\n", rem(11, 4))
 println("divrem(11, 4) = ", divrem(11, 4))
+println("7 % 3 = ", 7 % 3)
 
 println("Types and rational numbers")
 @printf("typeof(5): %s\n", typeof(5))

@@ -69,3 +69,9 @@ println(findnext('o', "xylophone", 5))
 println(occursin("world", "Hello, world."))
 println(occursin("o", "Xylophon"))
 println(occursin('o', "Xylophon"))
+
+# Reading input
+text = readline()
+println("This was the input: ", text)
+number = parse(Int64, readline())
+println("This was the input: $number of type $(typeof(number))")
