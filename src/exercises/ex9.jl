@@ -1,5 +1,7 @@
-# Exercise 9-1
+# Download the .txt file using curl as follows
+# curl -o words.txt  https://raw.githubusercontent.com/BenLauwens/ThinkJulia.jl/master/data/words.txt
 
+# Exercise 9-1
 function ex9_1()
     fin = open("words.txt")
     for line in eachline("words.txt")
@@ -89,6 +91,10 @@ function useall(word, letters)
     return true
 end
 
+function useall(word, letters)
+    return useonly(letters, word)
+end
+
 # println(useall("Hoe alfalfa?", "acefhlo?"))
 # println(useall("abcdefabcdef", "abcdef"))
 
@@ -144,3 +150,65 @@ function ex9_6()
 end
 
 # println(ex9_6())
+
+# Exercise 9-7
+function checkthree_doubles(word)
+    count, index = 0, 1
+    while index <= length(word) - 1
+        if word[index] == word[index + 1]
+            count += 1
+            if count == 3
+                return true
+            end
+            index += 2
+        else
+            index += 1 - 2*count
+            count = 0
+        end
+    end
+    return false
+end
+
+# println(checkthree_doubles("bookkeeper"))
+# println(checkthree_doubles("bookkaeeper"))
+
+function ex9_7()
+    fin = open("words.txt")
+    for line in eachline("words.txt")
+        if checkthree_doubles(line)
+            println(line)
+        end
+    end
+end
+
+# ex9_7()
+
+# Exercise 9-8
+function ispalindrome(number, l, r)
+    word = string(number)
+    substr = word[l:r]
+    return substr == reverse(substr)
+end
+
+# println(ispalindrome("abcba", 1, 5))
+# println(ispalindrome("zzzzheyayehzzz", 5, 11))
+# println(ispalindrome("zzzzheyayehzzz", 3, 12))
+
+function checknumber(n)
+    return (
+        ispalindrome(n, 3, 6) 
+        && ispalindrome(n + 1, 2, 6) 
+        && ispalindrome(n + 2, 2, 5) 
+        && ispalindrome(n + 3, 1, 6)
+    )
+end
+
+function ex9_8()
+    for i = 100000 : 999996
+        if checknumber(i)
+            println(i)
+        end
+    end
+end
+
+# ex9_8()
