@@ -20,3 +20,15 @@ function fibonacci(n)
 end
 
 # println(fibonacci(3))
+
+const table = Dict(0=>0, 1=>1)
+function fibmemo(n)
+    if n in keys(table)
+        return table[n]
+    else
+        res = table[n] = fibmemo(n - 1) + fibmemo(n - 2)
+        return res
+    end
+end
+
+# println(fibmemo(1000))
