@@ -38,3 +38,14 @@ for i in eachindex(strings)
     strings[i] *= 'z'
 end
 println(strings)
+
+# Slicing
+orig = [1, 2, 3, 4, 5, 6]
+copy = orig[:]
+println("orig == copy: $(orig == copy)")
+println("orig === copy: $(orig === copy)")
+println("orig[3:end]: $(orig[3:end])")
+println("orig[2:4]: $(orig[2:4])")
+orig[3:5] = [10, 11, 12]
+println("orig: $(orig)")
+println("copy: $(copy)")
