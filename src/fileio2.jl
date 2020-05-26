@@ -37,10 +37,18 @@ println("a === b: $(a === b)")
 # Command objects
 cmd = `cmd /c echo hello` # In Windows
 # cmd = `echo hello` in Unix
+# Alternatively: cm = @cmd " echo 1 "
 run(cmd)
 a = read(cmd, String)
 print(a)
 
 filename = ".gitignore"
 md5 = `powershell /c Get-FileHash $filename -algorithm md5`
-run(md5)
+# run(md5)
+
+# Importing Julia files / modules
+# include("wc.jl")
+
+s = "1 2\t 3\n 4";
+repr(s) # Produces: "\"1 2\\t 3\\n 4\""
+dump(s) # Produces: String "1 2\t 3\n 4"
