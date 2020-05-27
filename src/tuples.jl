@@ -54,3 +54,19 @@ println("d[\"one\", \"two\"]: $(d["one", "two"])")
 for ((t1, t2), t3) in d
     println("$t1, $t2, $t3")
 end
+
+# Checking and declaring tuple types
+type1 = Tuple{Int64}
+type2 = Tuple{Int64, Vararg{Int64}}
+type3 = Tuple{Int64, Vararg{String}}
+type4 = Tuple{Int64, Vararg{Char, 5}}
+println(isa((1,), type1))
+println(isa((1, 2), type1))
+println(isa((1,), type2))
+println(isa((1, 2, 3, 4, 5), type2))
+println(isa((1, 2), type3))
+println(isa((1, "abcdef"), type3))
+println(isa((1, "abcdef", "abc"), type3))
+println(isa((1, 'a'), type4))
+println(isa((1, 'a', 'b', 'c', 'd', 'e'), type4))
+println(isa((1, 'a', 'b', 'c', 'd', 'e', 'f'), type4))
