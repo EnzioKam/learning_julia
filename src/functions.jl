@@ -75,3 +75,16 @@ end
 
 # println(fact(1.5))
 # println(fact(-1))
+
+# Shorthand notation for function definition
+function func_ex(a=1, b=2)
+    return a + 2b
+end
+
+# The above function definition is equivalent to the following:
+func(a, b) = a + 2b
+func(a) = func(a, 2)
+func() = func(1, 2)
+println("func(7, 5): $(func(7, 5))")
+println("func(2): $(func(2))")
+println("func(): $(func())")
