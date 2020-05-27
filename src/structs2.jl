@@ -25,10 +25,14 @@ struct MyTime
     end
 end
 
+a = MyTime(11)
+b = MyTime(11, 23)
+c = MyTime(11, 23, 45)
+
 println(MyTime())
-println(MyTime(11))
-println(MyTime(11, 23))
-println(MyTime(11, 23, 45))
+println(a)
+println(b)
+println(c)
 
 mutable struct MMyTime
     hour :: Int
@@ -85,7 +89,23 @@ end
 
 function +(seconds::Int64, time::MyTime)
     time + seconds
-  end
+end
 
 println(start + 5)
 println(10 + start)
+
+function histogram(s)
+    d = Dict()
+    for c in s
+        if c ∉ keys(d)
+            d[c] = 1
+        else
+            d[c] += 1
+        end
+    end
+    d
+end
+
+println(histogram(("spam", "egg", "spam", "spam", "bacon", "spam")))
+
+println(sum((a, b, c)))

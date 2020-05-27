@@ -51,3 +51,74 @@ c = (6.5, -4.5)
 # println(a + b)
 # println(a + c)
 # println(c + b)
+
+# Exercise 17-4
+using Printf
+import Base.+
+
+struct MyTimeMidnight
+    seconds :: Int64
+end
+
+function Base.show(io::IO, time::MyTimeMidnight)
+    (minutes, second) = divrem(time.seconds, 60)
+    hour, minute = divrem(minutes, 60)
+    @printf(io, "%02d:%02d:%02d", hour, minute, second)
+end
+
+function increment(time::MyTimeMidnight, seconds::Int64)
+    return MyTimeMidnight(time.seconds + seconds)
+    # return inttotime(timetoint(time) + seconds)
+end
+
+function +(t1::MyTimeMidnight, t2::MyTimeMidnight)
+    return MyTimeMidnight(t1.seconds + t2.seconds)
+end
+
+function +(time::MyTimeMidnight, seconds::Int64)
+    increment(time, seconds)
+end
+
+function +(seconds::Int64, time::MyTimeMidnight)
+    time + seconds
+end
+
+function ex17_4()
+    t1 = MyTimeMidnight(54321)
+    t2 = MyTimeMidnight(10000)
+    println(t1)
+    println(t2)
+    println(t1 + t2)
+    println(t1 + 1000)
+    println(2000 + t1)
+end
+
+# ex17_4()
+
+# Exercise 17-5
+struct Kangaroo
+    pouchcontents :: Array
+    function Kangaroo()
+        new([])
+    end
+end
+
+function putinpouch(k::Kangaroo, obj)
+    push!(k.pouchcontents, obj)
+end
+
+function Base.show(io::IO, k::Kangaroo)
+    println(io, "$(k.pouchcontents)")
+end
+
+function ex17_5()
+    kanga = Kangaroo()
+    roo = Kangaroo()
+    putinpouch(roo, "abc")
+    putinpouch(roo, 123)
+    putinpouch(kanga, roo)
+    putinpouch(kanga, (1.2, 2.3, "123"))
+    println(kanga)
+end
+
+# ex17_5()
