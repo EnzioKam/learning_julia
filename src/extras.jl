@@ -106,3 +106,8 @@ end
 
 p = Point(1, 2)
 println(p(1.5))
+
+arr = [1, missing, 2]
+println(sum(arr))
+println(typeof(missing))
+println(sum(skipmissing(arr)))
