@@ -111,3 +111,21 @@ arr = [1, missing, 2]
 println(sum(arr))
 println(typeof(missing))
 println(sum(skipmissing(arr)))
+
+function squaresum(a::Float64, b::Float64)
+    a^2 + b^2
+end
+
+using InteractiveUtils
+
+println(@code_lowered squaresum(3.0, 4.0))
+println(@code_typed squaresum(3.0, 4.0))
+println(@code_llvm squaresum(3.0, 4.0))
+println(@code_native squaresum(3.0, 4.0))
+
+@warn "This is an example of a warning."
+
+# Turn on debugging for target module
+# ENV["JULIA_DEBUG"] = "all"
+ENV["JULIA_DEBUG"] = Main
+@debug "The sum of some values $(sum(rand(100)))"
